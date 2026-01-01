@@ -1,127 +1,148 @@
-/* =====================
-   Header - Logo left, search perfectly centered
-   ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #0a0a15;
+  color: #ddd;
+}
+
+/* Header - Logo left, search bar strictly centered */
 .topnav {
-  position: relative;
   background-color: #111122;
-  padding: 15px 30px;
+  padding: 20px 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Changed from flex-start */
+  justify-content: center;
   flex-wrap: wrap;
-  box-shadow: 0 3px 15px rgba(0,0,0,0.5);
+  gap: 30px;
+  position: sticky;
+  top: 0;
   z-index: 100;
-  gap: 20px; /* Added for better spacing */
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Logo */
-.topnav .logo {
-  display: flex;
-  align-items: center;
+.topnav a {
+  color: #5ebfff;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  white-space: nowrap;
   flex-shrink: 0;
-  z-index: 101; /* Ensure logo stays above search on mobile */
+  position: absolute;
+  left: 40px;
 }
 
-.topnav .logo img {
-  height: 40px;
-  width: auto;
-  object-fit: contain;
-}
-
-/* Search - perfectly centered */
+/* Search container - Fully centered with max width */
 .search-container {
-  flex: 1; /* Take available space */
+  flex: 0 1 auto;
   max-width: 900px;
-  margin: 0 auto; /* Center within available space */
+  width: 100%;
   position: relative;
+  margin: 0 auto;
 }
 
-/* Search input */
 .search-container input[type="search"] {
   width: 100%;
-  padding: 16px 60px 16px 20px;
-  font-size: 1.2rem;
-  border-radius: 50px;
+  padding: 18px 70px 18px 30px;
+  font-size: 1.3rem;
+  background-color: white;
+  color: #333;
   border: 2px solid #ddd;
+  border-radius: 50px;
   outline: none;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .search-container input::placeholder {
   color: #888;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .search-container input:focus {
   border-color: #5ebfff;
-  box-shadow: 0 0 20px rgba(94,191,255,0.6);
+  box-shadow: 0 0 20px rgba(94, 191, 255, 0.6);
 }
 
-/* Search icon */
 .search-container::after {
   content: "🔍";
   position: absolute;
-  right: 20px;
+  right: 25px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #555;
   pointer-events: none;
 }
 
-/* =====================
-   Medium screens (between mobile and desktop)
-   ===================== */
-@media (max-width: 1100px) and (min-width: 769px) {
-  .search-container {
-    max-width: 600px; /* Reduce max-width on medium screens */
-  }
+/* Small card grid with smaller posters */
+#section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Tighter grid */
+  gap: 20px;
+  padding: 40px 20px;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
-/* =====================
-   Mobile responsive
-   ===================== */
+.card {
+  background: #16182a;
+  border-radius: 12px; /* Slightly smaller rounding */
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img.thumbnail {
+  width: 100%;
+  height: 250px; /* Smaller poster height */
+  object-fit: cover;
+}
+
+.card h3 {
+  text-align: center;
+  padding: 12px; /* Less padding */
+  font-size: 1.1rem;
+  color: white;
+}
+
+/* Mobile responsiveness */
 @media (max-width: 768px) {
   .topnav {
     flex-direction: column;
-    justify-content: center;
-    align-items: stretch; /* Changed from center */
-    padding: 15px;
-    gap: 15px;
+    text-align: center;
+    padding: 20px;
   }
 
-  .topnav .logo {
-    margin-bottom: 0;
-    width: 100%;
-    justify-content: center;
+  .topnav a {
+    position: static;
+    margin-bottom: 15px;
   }
 
   .search-container {
-    width: 100%;
-    max-width: 100%;
+    width: 95%;
+    max-width: none;
+    margin: 0 auto;
   }
-}
 
-/* =====================
-   Extra small screens
-   ===================== */
-@media (max-width: 480px) {
-  .topnav {
-    padding: 12px 10px;
-  }
-  
   .search-container input[type="search"] {
-    padding: 14px 50px 14px 15px;
-    font-size: 1rem;
+    padding: 16px 60px 16px 25px;
+    font-size: 1.2rem;
   }
-  
-  .search-container input::placeholder {
-    font-size: 1rem;
+
+  #section {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
-  
-  .search-container::after {
-    right: 15px;
-    font-size: 1.3rem;
+
+  .card img.thumbnail {
+    height: 200px;
   }
 }
