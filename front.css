@@ -64,7 +64,7 @@ body {
 .search-container::after {
   content: "🔍";
   position: absolute;
-  right: 20px;
+  right: 80px;
   top: 50%;
   transform: translateY(-50%);
   font-size: 1.4rem;
@@ -127,3 +127,4 @@ body {
     height: 280px;
   }
 }
+
