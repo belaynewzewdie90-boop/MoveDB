@@ -1,4 +1,4 @@
-/* front.css - Best modern CSS for your current HTML */
+/* front.css - Best CSS for your current HTML (2026 modern style) */
 
 * {
   margin: 0;
@@ -7,33 +7,36 @@
 }
 
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background-color: #141414; /* Dark theme like Netflix */
-  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d0d1a; /* Deep dark background */
+  color: #e0e0e0;
   min-height: 100vh;
 }
 
+/* Header - Logo left, search centered */
 .topnav {
-  background-color: #0f0f1e;
+  background-color: #111122;
   padding: 20px 30px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 .topnav a {
-  color: #4da6ff;
+  color: #5ebfff;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: bold;
+  letter-spacing: 1px;
 }
 
+/* Search bar - perfectly centered and modern */
 .search-container {
   flex: 1;
   max-width: 800px;
@@ -42,26 +45,27 @@ body {
 
 .search-container input[type="search"] {
   width: 100%;
-  padding: 16px 60px 16px 25px;
+  padding: 16px 60px 16px 30px;
   font-size: 1.2rem;
-  background-color: #1e2a48;
-  border: 2px solid #0f3460;
+  background-color: #1e2235;
+  border: 2px solid #2a3b5f;
   border-radius: 50px;
   color: white;
   outline: none;
-  transition: border-color 0.3s;
+  transition: all 0.4s ease;
 }
 
 .search-container input::placeholder {
-  color: #888;
+  color: #777;
 }
 
 .search-container input:focus {
-  border-color: #4da6ff;
-  box-shadow: 0 0 15px rgba(77, 166, 255, 0.3);
+  border-color: #5ebfff;
+  box-shadow: 0 0 20px rgba(94, 191, 255, 0.3);
+  background-color: #252b44;
 }
 
-/* Magnifying glass icon */
+/* Search icon */
 .search-container::after {
   content: "🔍";
   position: absolute;
@@ -73,53 +77,72 @@ body {
   pointer-events: none;
 }
 
-/* Remove the empty padding div */
+/* Hide the empty padding div */
 div[style="padding-left: 16px"] {
   display: none;
 }
 
-/* Responsive grid for future cards */
+/* Grid layout for future movie cards */
 #section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 40px;
-  padding: 50px 40px;
-  max-width: 1600px;
+  padding: 60px 40px;
+  max-width: 1800px;
   margin: 0 auto;
 }
 
-/* Card styles - ready when you uncomment */
+/* Beautiful card style - ready when you add cards */
 .card {
-  background: #1e1e2e;
-  border-radius: 18px;
+  background: linear-gradient(135deg, #1a1f35, #16182b);
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-  transition: transform 0.4s ease;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .card:hover {
-  transform: translateY(-12px);
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(94, 191, 255, 0.2);
 }
 
 .card img.thumbnail {
   width: 100%;
   height: 500px;
-  object-fit: cover; /* Prevents stretching */
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover img.thumbnail {
+  transform: scale(1.08);
 }
 
 .card h3 {
   text-align: center;
   padding: 25px;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  color: #fff;
 }
 
-/* Mobile fixes */
+/* Responsive for mobile */
 @media (max-width: 768px) {
   .topnav {
     flex-direction: column;
-    align-items: flex-start;
+    text-align: center;
+    padding: 20px;
   }
+
+  .topnav a {
+    margin-bottom: 15px;
+    font-size: 2rem;
+  }
+
   .search-container {
-    width: 100%;
+    width: 95%;
+  }
+
+  #section {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
   }
 }
