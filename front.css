@@ -1,12 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #0a0a15;
+  color: #ddd;
+}
+
 /* Header - Logo left, search bar strictly centered */
 .topnav {
   background-color: #111122;
   padding: 20px 40px;
   display: flex;
   align-items: center;
-  justify-content: center;      /* Centers content horizontally */
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 30px;                    /* Space between elements */
+  gap: 30px;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -19,23 +31,23 @@
   font-size: 2rem;
   font-weight: bold;
   white-space: nowrap;
-  flex-shrink: 0;               /* Prevents logo from shrinking */
-  position: absolute;           /* Position logo absolutely */
-  left: 40px;                   /* Fixed left position */
+  flex-shrink: 0;
+  position: absolute;
+  left: 40px;
 }
 
 /* Search container - Fully centered with max width */
 .search-container {
-  flex: 0 1 auto;               /* Allows centering with fixed width */
-  max-width: 900px;             /* Wide but controlled */
-  width: 100%;                  /* Full width within max */
+  flex: 0 1 auto;
+  max-width: 900px;
+  width: 100%;
   position: relative;
-  margin: 0 auto;               /* Ensures perfect centering */
+  margin: 0 auto;
 }
 
 .search-container input[type="search"] {
   width: 100%;
-  padding: 18px 70px 18px 30px; /* Taller and comfortable */
+  padding: 18px 70px 18px 30px;
   font-size: 1.3rem;
   background-color: white;
   color: #333;
@@ -67,7 +79,42 @@
   pointer-events: none;
 }
 
-/* Mobile - Logo above, search full-width centered */
+/* Small card grid with smaller posters */
+#section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Tighter grid */
+  gap: 20px;
+  padding: 40px 20px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #16182a;
+  border-radius: 12px; /* Slightly smaller rounding */
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img.thumbnail {
+  width: 100%;
+  height: 250px; /* Smaller poster height */
+  object-fit: cover;
+}
+
+.card h3 {
+  text-align: center;
+  padding: 12px; /* Less padding */
+  font-size: 1.1rem;
+  color: white;
+}
+
+/* Mobile responsiveness */
 @media (max-width: 768px) {
   .topnav {
     flex-direction: column;
@@ -76,7 +123,7 @@
   }
 
   .topnav a {
-    position: static;           /* Reset to static for mobile */
+    position: static;
     margin-bottom: 15px;
   }
 
@@ -89,5 +136,13 @@
   .search-container input[type="search"] {
     padding: 16px 60px 16px 25px;
     font-size: 1.2rem;
+  }
+
+  #section {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .card img.thumbnail {
+    height: 200px;
   }
 }
