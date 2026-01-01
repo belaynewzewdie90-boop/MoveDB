@@ -1,81 +1,125 @@
-/* Improved Header with centered search - Corrected Version */
+/* front.css - Best modern CSS for your current HTML */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #141414; /* Dark theme like Netflix */
+  color: #fff;
+  min-height: 100vh;
+}
+
 .topnav {
-  background-color: #1a1a2e; /* Dark navy/blue theme */
-  padding: 15px 20px;
+  background-color: #0f0f1e;
+  padding: 20px 30px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Logo left, search centered/right */
+  justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
 }
 
 .topnav a {
   color: #4da6ff;
   text-decoration: none;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: bold;
-  white-space: nowrap;
 }
 
-/* Search container - perfectly centered */
 .search-container {
   flex: 1;
-  max-width: 700px;
+  max-width: 800px;
   position: relative;
 }
 
 .search-container input[type="search"] {
   width: 100%;
-  padding: 14px 50px 14px 20px; /* Space for icon */
-  font-size: 1.1rem;
-  background-color: #16213e;
+  padding: 16px 60px 16px 25px;
+  font-size: 1.2rem;
+  background-color: #1e2a48;
   border: 2px solid #0f3460;
   border-radius: 50px;
   color: white;
   outline: none;
-  transition: all 0.3s;
+  transition: border-color 0.3s;
 }
 
-.search-container input[type="search"]::placeholder {
+.search-container input::placeholder {
   color: #888;
 }
 
-.search-container input[type="search"]:focus {
+.search-container input:focus {
   border-color: #4da6ff;
-  box-shadow: 0 0 10px rgba(77, 166, 255, 0.3);
+  box-shadow: 0 0 15px rgba(77, 166, 255, 0.3);
 }
 
 /* Magnifying glass icon */
 .search-container::after {
   content: "🔍";
   position: absolute;
-  right: 18px;
+  right: 25px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: #888;
   pointer-events: none;
 }
 
-/* Mobile responsiveness - Fixed & Improved */
+/* Remove the empty padding div */
+div[style="padding-left: 16px"] {
+  display: none;
+}
+
+/* Responsive grid for future cards */
+#section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  padding: 50px 40px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Card styles - ready when you uncomment */
+.card {
+  background: #1e1e2e;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transition: transform 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-12px);
+}
+
+.card img.thumbnail {
+  width: 100%;
+  height: 500px;
+  object-fit: cover; /* Prevents stretching */
+}
+
+.card h3 {
+  text-align: center;
+  padding: 25px;
+  font-size: 1.5rem;
+}
+
+/* Mobile fixes */
 @media (max-width: 768px) {
   .topnav {
     flex-direction: column;
-    text-align: center;
-    padding: 15px;
+    align-items: flex-start;
   }
-
-  .topnav a {
-    margin-bottom: 10px;
-  }
-
   .search-container {
-    width: 95%;
-    max-width: none;
-    margin: 0 auto;
+    width: 100%;
   }
 }
