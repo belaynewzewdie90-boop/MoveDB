@@ -1,47 +1,49 @@
-/* =====================
-   Header - Logo left, search perfectly centered
-   ===================== */
+/* Header - Logo left, search bar strictly centered */
 .topnav {
-  position: relative;           /* Needed for absolute children */
   background-color: #111122;
   padding: 20px 40px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;  /* Logo stays left */
+  justify-content: center;      /* Centers content horizontally */
   flex-wrap: wrap;
-  box-shadow: 0 3px 15px rgba(0,0,0,0.5);
+  gap: 30px;                    /* Space between elements */
+  position: sticky;
+  top: 0;
   z-index: 100;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Logo */
-.topnav .logo {
-  font-size: 2rem;
-  font-weight: bold;
+.topnav a {
   color: #5ebfff;
   text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
   white-space: nowrap;
-  flex-shrink: 0;
+  flex-shrink: 0;               /* Prevents logo from shrinking */
+  position: absolute;           /* Position logo absolutely */
+  left: 40px;                   /* Fixed left position */
 }
 
-/* Search - perfectly centered */
+/* Search container - Fully centered with max width */
 .search-container {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);  /* True horizontal center */
-  width: 60%;                   /* Adjust as needed */
-  max-width: 900px;
+  flex: 0 1 auto;               /* Allows centering with fixed width */
+  max-width: 900px;             /* Wide but controlled */
+  width: 100%;                  /* Full width within max */
+  position: relative;
+  margin: 0 auto;               /* Ensures perfect centering */
 }
 
-/* Search input */
 .search-container input[type="search"] {
   width: 100%;
-  padding: 18px 70px 18px 30px;
+  padding: 18px 70px 18px 30px; /* Taller and comfortable */
   font-size: 1.3rem;
-  border-radius: 50px;
+  background-color: white;
+  color: #333;
   border: 2px solid #ddd;
+  border-radius: 50px;
   outline: none;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .search-container input::placeholder {
@@ -51,10 +53,9 @@
 
 .search-container input:focus {
   border-color: #5ebfff;
-  box-shadow: 0 0 20px rgba(94,191,255,0.6);
+  box-shadow: 0 0 20px rgba(94, 191, 255, 0.6);
 }
 
-/* Search icon */
 .search-container::after {
   content: "🔍";
   position: absolute;
@@ -66,25 +67,27 @@
   pointer-events: none;
 }
 
-/* =====================
-   Mobile responsive
-   ===================== */
+/* Mobile - Logo above, search full-width centered */
 @media (max-width: 768px) {
   .topnav {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     padding: 20px;
   }
 
-  .topnav .logo {
-    margin-bottom: 10px;
+  .topnav a {
+    position: static;           /* Reset to static for mobile */
+    margin-bottom: 15px;
   }
 
   .search-container {
-    position: static;    /* Stack naturally */
     width: 95%;
-    transform: none;
     max-width: none;
+    margin: 0 auto;
+  }
+
+  .search-container input[type="search"] {
+    padding: 16px 60px 16px 25px;
+    font-size: 1.2rem;
   }
 }
