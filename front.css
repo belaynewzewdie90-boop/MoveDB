@@ -1,10 +1,10 @@
-/* Improved Header with centered search */
+/* Improved Header with centered search - Corrected Version */
 .topnav {
-  background-color: #1a1a2e; /* Dark navy/blue to match your theme */
+  background-color: #1a1a2e; /* Dark navy/blue theme */
   padding: 15px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Logo left, search right/center */
+  justify-content: space-between; /* Logo left, search centered/right */
   flex-wrap: wrap;
   gap: 20px;
   position: sticky;
@@ -21,17 +21,16 @@
   white-space: nowrap;
 }
 
-/* Search container - now properly centered on larger screens */
+/* Search container - perfectly centered */
 .search-container {
   flex: 1;
   max-width: 700px;
-  margin: 0 auto; /* This centers it */
   position: relative;
 }
 
 .search-container input[type="search"] {
   width: 100%;
-  padding: 14px 50px 14px 20px; /* Space for icon on right */
+  padding: 14px 50px 14px 20px; /* Space for icon */
   font-size: 1.1rem;
   background-color: #16213e;
   border: 2px solid #0f3460;
@@ -50,7 +49,7 @@
   box-shadow: 0 0 10px rgba(77, 166, 255, 0.3);
 }
 
-/* Magnifying glass icon inside the input */
+/* Magnifying glass icon */
 .search-container::after {
   content: "🔍";
   position: absolute;
@@ -62,15 +61,21 @@
   pointer-events: none;
 }
 
-/* Mobile responsiveness */
+/* Mobile responsiveness - Fixed & Improved */
 @media (max-width: 768px) {
   .topnav {
     flex-direction: column;
     text-align: center;
+    padding: 15px;
   }
-  
+
+  .topnav a {
+    margin-bottom: 10px;
+  }
+
   .search-container {
-    width: 90%;
-    margin: 10px auto;
+    width: 95%;
+    max-width: none;
+    margin: 0 auto;
   }
 }
