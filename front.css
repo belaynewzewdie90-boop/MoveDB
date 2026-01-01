@@ -32,43 +32,24 @@ body {
   font-weight: bold;
 }
 
-/* Search */
-.search-container {
-  flex: 1;
-  max-width: 750px;
-  position: relative;
-}
-
 .search-container input[type="search"] {
-  width: 100%;
-  padding: 14px 55px 14px 25px;
-  font-size: 1.1rem;
-  background-color: #1c2033;
-  border: 2px solid #28385a;
-  border-radius: 50px;
-  color: white;
-  outline: none;
-  transition: 0.3s;
+  background-color: white;     /* Change to white */
+  color: #333;                 /* Dark text for readability */
+  border: 2px solid #ccc;      /* Optional: lighter border */
 }
 
 .search-container input::placeholder {
-  color: #777;
+  color: #666;                 /* Gray placeholder */
 }
 
 .search-container input:focus {
-  border-color: #5ebfff;
-  box-shadow: 0 0 12px rgba(94,191,255,0.3);
+  border-color: #5ebfff;        /* Keep blue glow on focus */
+  box-shadow: 0 0 12px rgba(94,191,255,0.5);
 }
 
+/* Update icon color for visibility on white */
 .search-container::after {
-  content: "🔍";
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.4rem;
-  color: #777;
-  pointer-events: none;
+  color: #333;                 /* Dark icon */
 }
 
 /* Small card grid */
@@ -111,3 +92,4 @@ body {
   #section { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
   .card img.thumbnail { height: 280px; }
 }
+
