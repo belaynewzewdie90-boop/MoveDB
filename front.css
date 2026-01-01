@@ -22,7 +22,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 3px 15px rgba(0,0,0,0.5);
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
 }
 
 .topnav a {
@@ -32,24 +32,44 @@ body {
   font-weight: bold;
 }
 
+/* Search Container */
+.search-container {
+  flex: 1;
+  max-width: 750px;
+  position: relative;
+}
+
 .search-container input[type="search"] {
-  background-color: white;     /* Change to white */
-  color: #333;                 /* Dark text for readability */
-  border: 2px solid #ccc;      /* Optional: lighter border */
+  width: 100%;
+  padding: 14px 55px 14px 25px;   /* Space for the icon */
+  font-size: 1.1rem;
+  background-color: white;       /* White background */
+  color: #333;                   /* Dark text */
+  border: 2px solid #ccc;
+  border-radius: 50px;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
 .search-container input::placeholder {
-  color: #666;                 /* Gray placeholder */
+  color: #666;                   /* Gray placeholder text */
 }
 
 .search-container input:focus {
-  border-color: #5ebfff;        /* Keep blue glow on focus */
-  box-shadow: 0 0 12px rgba(94,191,255,0.5);
+  border-color: #5ebfff;         /* Blue border on focus */
+  box-shadow: 0 0 12px rgba(94, 191, 255, 0.5);
 }
 
-/* Update icon color for visibility on white */
+/* Magnifying glass icon - dark on white background */
 .search-container::after {
-  color: #333;                 /* Dark icon */
+  content: "🔍";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  color: #333;                   /* Dark icon */
+  pointer-events: none;
 }
 
 /* Small card grid */
@@ -66,7 +86,7 @@ body {
   background: #16182a;
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease;
 }
 
@@ -84,12 +104,26 @@ body {
   text-align: center;
   padding: 15px;
   font-size: 1.2rem;
+  color: white;
 }
 
-/* Mobile */
+/* Mobile responsiveness */
 @media (max-width: 768px) {
-  .topnav { flex-direction: column; text-align: center; }
-  #section { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
-  .card img.thumbnail { height: 280px; }
-}
+  .topnav {
+    flex-direction: column;
+    text-align: center;
+  }
 
+  .search-container {
+    width: 95%;
+    margin-top: 10px;
+  }
+
+  #section {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .card img.thumbnail {
+    height: 280px;
+  }
+}
