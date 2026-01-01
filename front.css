@@ -1,12 +1,24 @@
-/* Header - Logo left, search wide and centered */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #0a0a15;
+  color: #ddd;
+}
+
+/* Header */
 .topnav {
   background-color: #111122;
-  padding: 20px 40px;           /* More horizontal padding */
+  padding: 18px 25px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 15px;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -16,74 +28,74 @@
 .topnav a {
   color: #5ebfff;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.9rem;
   font-weight: bold;
-  white-space: nowrap;
-}
-
-/* Search Container - Wide and Centered */
-.search-container {
-  flex: 1;                      /* Takes available space */
-  max-width: 900px;             /* Makes it wide but not full-screen */
-  margin: 0 20px;               /* Space from logo and edge */
-  position: relative;
 }
 
 .search-container input[type="search"] {
-  width: 100%;
-  padding: 18px 70px 18px 30px; /* Taller + more comfortable padding */
-  font-size: 1.3rem;            /* Larger text */
-  background-color: white;
-  color: #333;
-  border: 2px solid #ddd;
-  border-radius: 50px;
-  outline: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  background-color: white; /* Change to white */
+  color: #333; /* Dark text for readability */
+  border: 2px solid #ccc; /* Optional: lighter border */
 }
 
 .search-container input::placeholder {
-  color: #888;
-  font-size: 1.2rem;
+  color: #666; /* Gray placeholder */
 }
 
 .search-container input:focus {
-  border-color: #5ebfff;
-  box-shadow: 0 0 20px rgba(94, 191, 255, 0.6);
+  border-color: #5ebfff; /* Keep blue glow on focus */
+  box-shadow: 0 0 12px rgba(94,191,255,0.5);
 }
 
-/* Magnifying glass icon - bigger and aligned */
+/* Update icon color for visibility on white */
 .search-container::after {
-  content: "🔍";
-  position: absolute;
-  right: 25px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.8rem;
-  color: #555;
-  pointer-events: none;
+  color: #333; /* Dark icon */
 }
 
-/* Mobile - Full width search below logo */
+/* Small card grid */
+#section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  padding: 40px 20px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #16182a;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img.thumbnail {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.card h3 {
+  text-align: center;
+  padding: 15px;
+  font-size: 1.2rem;
+}
+
+/* Mobile */
 @media (max-width: 768px) {
-  .topnav {
-    flex-direction: column;
-    text-align: center;
-    padding: 20px;
+  .topnav { 
+    flex-direction: column; 
+    text-align: center; 
   }
-
-  .topnav a {
-    margin-bottom: 15px;
+  #section { 
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
   }
-
-  .search-container {
-    width: 95%;
-    max-width: none;
-    margin: 0 auto;
-  }
-
-  .search-container input[type="search"] {
-    padding: 16px 60px 16px 25px;
-    font-size: 1.2rem;
+  .card img.thumbnail { 
+    height: 280px; 
   }
 }
