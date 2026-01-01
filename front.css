@@ -1,24 +1,12 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background-color: #0a0a15;
-  color: #ddd;
-}
-
-/* Header */
+/* Header - Logo left, search wide and truly centered */
 .topnav {
   background-color: #111122;
-  padding: 18px 25px;
+  padding: 20px 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;  /* Changed from space-between */
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 30px;                    /* More space */
   position: sticky;
   top: 0;
   z-index: 100;
@@ -28,74 +16,66 @@ body {
 .topnav a {
   color: #5ebfff;
   text-decoration: none;
-  font-size: 1.9rem;
+  font-size: 2rem;
   font-weight: bold;
+  white-space: nowrap;
+  flex-shrink: 0;               /* Prevents logo from shrinking */
+}
+
+/* Search container - centered in the middle */
+.search-container {
+  flex: 1;                      /* Takes all available space */
+  max-width: 900px;             /* Wide but controlled */
+  margin: 0 auto;               /* This centers it perfectly */
+  position: relative;
 }
 
 .search-container input[type="search"] {
-  background-color: white; /* Change to white */
-  color: #333; /* Dark text for readability */
-  border: 2px solid #ccc; /* Optional: lighter border */
+  width: 100%;
+  padding: 18px 70px 18px 30px; /* Taller and comfortable */
+  font-size: 1.3rem;
+  background-color: white;
+  color: #333;
+  border: 2px solid #ddd;
+  border-radius: 50px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .search-container input::placeholder {
-  color: #666; /* Gray placeholder */
-}
-
-.search-container input:focus {
-  border-color: #5ebfff; /* Keep blue glow on focus */
-  box-shadow: 0 0 12px rgba(94,191,255,0.5);
-}
-
-/* Update icon color for visibility on white */
-.search-container::after {
-  color: #333; /* Dark icon */
-}
-
-/* Small card grid */
-#section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  padding: 40px 20px;
-  max-width: 1600px;
-  margin: 0 auto;
-}
-
-.card {
-  background: #16182a;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-}
-
-.card img.thumbnail {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-}
-
-.card h3 {
-  text-align: center;
-  padding: 15px;
+  color: #888;
   font-size: 1.2rem;
 }
 
-/* Mobile */
+.search-container input:focus {
+  border-color: #5ebfff;
+  box-shadow: 0 0 20px rgba(94, 191, 255, 0.6);
+}
+
+.search-container::after {
+  content: "🔍";
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.8rem;
+  color: #555;
+  pointer-events: none;
+}
+
+/* Mobile - Logo top, search full-width centered */
 @media (max-width: 768px) {
-  .topnav { 
-    flex-direction: column; 
-    text-align: center; 
+  .topnav {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    gap: 15px;
   }
-  #section { 
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-  }
-  .card img.thumbnail { 
-    height: 280px; 
+
+  .search-container {
+    width: 95%;
+    max-width: none;
+    margin: 0 auto;
   }
 }
