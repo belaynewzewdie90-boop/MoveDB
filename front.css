@@ -2,15 +2,16 @@
    Header - Logo left, search perfectly centered
    ===================== */
 .topnav {
-  position: relative;           /* Needed for absolute children */
+  position: relative;
   background-color: #111122;
-  padding: 15px 30px;           /* Slightly smaller padding */
+  padding: 15px 30px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;  /* Logo stays left */
+  justify-content: space-between; /* Changed from flex-start */
   flex-wrap: wrap;
   box-shadow: 0 3px 15px rgba(0,0,0,0.5);
   z-index: 100;
+  gap: 20px; /* Added for better spacing */
 }
 
 /* Logo */
@@ -18,28 +19,27 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  z-index: 101; /* Ensure logo stays above search on mobile */
 }
 
 .topnav .logo img {
-  height: 40px; /* sets the logo image height */
-  width: auto;  /* keeps the aspect ratio so it doesn’t stretch */
+  height: 40px;
+  width: auto;
   object-fit: contain;
 }
 
-
 /* Search - perfectly centered */
 .search-container {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);  /* True horizontal center */
-  width: 60%;                   /* Adjust width if needed */
+  flex: 1; /* Take available space */
   max-width: 900px;
+  margin: 0 auto; /* Center within available space */
+  position: relative;
 }
 
 /* Search input */
 .search-container input[type="search"] {
   width: 100%;
-  padding: 16px 60px 16px 20px; /* Slightly smaller for compact header */
+  padding: 16px 60px 16px 20px;
   font-size: 1.2rem;
   border-radius: 50px;
   border: 2px solid #ddd;
@@ -71,25 +71,57 @@
 }
 
 /* =====================
+   Medium screens (between mobile and desktop)
+   ===================== */
+@media (max-width: 1100px) and (min-width: 769px) {
+  .search-container {
+    max-width: 600px; /* Reduce max-width on medium screens */
+  }
+}
+
+/* =====================
    Mobile responsive
    ===================== */
 @media (max-width: 768px) {
   .topnav {
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: stretch; /* Changed from center */
     padding: 15px;
+    gap: 15px;
   }
 
   .topnav .logo {
-    margin-bottom: 10px;
+    margin-bottom: 0;
+    width: 100%;
+    justify-content: center;
   }
 
   .search-container {
-    position: static;    /* Stack naturally */
-    width: 95%;
-    transform: none;
-    max-width: none;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
+/* =====================
+   Extra small screens
+   ===================== */
+@media (max-width: 480px) {
+  .topnav {
+    padding: 12px 10px;
+  }
+  
+  .search-container input[type="search"] {
+    padding: 14px 50px 14px 15px;
+    font-size: 1rem;
+  }
+  
+  .search-container input::placeholder {
+    font-size: 1rem;
+  }
+  
+  .search-container::after {
+    right: 15px;
+    font-size: 1.3rem;
+  }
+}
