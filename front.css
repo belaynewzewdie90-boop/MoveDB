@@ -1,4 +1,4 @@
-/* front.css - Best CSS for your current HTML (2026 modern style) */
+/* front.css - Best CSS with smaller card/poster size for your HTML */
 
 * {
   margin: 0;
@@ -7,52 +7,50 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0d0d1a; /* Deep dark background */
-  color: #e0e0e0;
-  min-height: 100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #0a0a15; /* Deep dark */
+  color: #ddd;
 }
 
-/* Header - Logo left, search centered */
+/* Header styling */
 .topnav {
   background-color: #111122;
-  padding: 20px 30px;
+  padding: 18px 25px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 15px;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 3px 15px rgba(0,0,0,0.5);
 }
 
 .topnav a {
   color: #5ebfff;
   text-decoration: none;
-  font-size: 2.2rem;
+  font-size: 1.9rem;
   font-weight: bold;
-  letter-spacing: 1px;
 }
 
-/* Search bar - perfectly centered and modern */
+/* Search bar */
 .search-container {
   flex: 1;
-  max-width: 800px;
+  max-width: 750px;
   position: relative;
 }
 
 .search-container input[type="search"] {
   width: 100%;
-  padding: 16px 60px 16px 30px;
-  font-size: 1.2rem;
-  background-color: #1e2235;
-  border: 2px solid #2a3b5f;
+  padding: 14px 55px 14px 25px;
+  font-size: 1.1rem;
+  background-color: #1c2033;
+  border: 2px solid #28385a;
   border-radius: 50px;
   color: white;
   outline: none;
-  transition: all 0.4s ease;
+  transition: 0.3s;
 }
 
 .search-container input::placeholder {
@@ -61,88 +59,62 @@ body {
 
 .search-container input:focus {
   border-color: #5ebfff;
-  box-shadow: 0 0 20px rgba(94, 191, 255, 0.3);
-  background-color: #252b44;
+  box-shadow: 0 0 12px rgba(94,191,255,0.3);
 }
 
-/* Search icon */
 .search-container::after {
   content: "🔍";
   position: absolute;
-  right: 25px;
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.6rem;
-  color: #888;
+  font-size: 1.4rem;
+  color: #777;
   pointer-events: none;
 }
 
-/* Hide the empty padding div */
+/* Hide empty div */
 div[style="padding-left: 16px"] {
   display: none;
 }
 
-/* Grid layout for future movie cards */
+/* Smaller grid & cards */
 #section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  padding: 60px 40px;
-  max-width: 1800px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Smaller cards */
+  gap: 25px;
+  padding: 40px 20px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
-/* Beautiful card style - ready when you add cards */
 .card {
-  background: linear-gradient(135deg, #1a1f35, #16182b);
-  border-radius: 20px;
+  background: #16182a;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 20px 40px rgba(94, 191, 255, 0.2);
+  transform: translateY(-10px);
 }
 
 .card img.thumbnail {
   width: 100%;
-  height: 500px;
+  height: 350px; /* Smaller poster height */
   object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.card:hover img.thumbnail {
-  transform: scale(1.08);
 }
 
 .card h3 {
   text-align: center;
-  padding: 25px;
-  font-size: 1.6rem;
-  color: #fff;
+  padding: 15px;
+  font-size: 1.2rem;
 }
 
-/* Responsive for mobile */
+/* Mobile */
 @media (max-width: 768px) {
-  .topnav {
-    flex-direction: column;
-    text-align: center;
-    padding: 20px;
-  }
-
-  .topnav a {
-    margin-bottom: 15px;
-    font-size: 2rem;
-  }
-
-  .search-container {
-    width: 95%;
-  }
-
-  #section {
-    grid-template-columns: 1fr;
-    padding: 40px 20px;
-  }
+  .topnav { flex-direction: column; text-align: center; }
+  #section { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+  .card img.thumbnail { height: 280px; }
 }
