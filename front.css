@@ -1,6 +1,6 @@
 /* Improved Header with centered search */
 .topnav {
-  background-color: #1a1a2e; /* Dark navy/blue to match your theme */
+  background-color: white; /* Dark navy/blue to match your theme */
   padding: 15px 20px;
   display: flex;
   align-items: center;
@@ -74,3 +74,4 @@
     margin: 10px auto;
   }
 }
+
