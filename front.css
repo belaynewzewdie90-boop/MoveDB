@@ -21,10 +21,11 @@
 }
 
 .topnav .logo img {
-  height: 40px;                 /* Smaller logo image */
-  width: auto;
+  height: 40px; /* sets the logo image height */
+  width: auto;  /* keeps the aspect ratio so it doesn’t stretch */
   object-fit: contain;
 }
+
 
 /* Search - perfectly centered */
 .search-container {
@@ -91,3 +92,4 @@
     max-width: none;
   }
 }
+
