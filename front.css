@@ -1,41 +1,47 @@
 /* =====================
-   Header - Logo left, search perfectly centered
+   Header - Logo left, search centered
    ===================== */
 .topnav {
-  position: relative;           /* Needed for absolute children */
-  background-color: #111122;
-  padding: 20px 40px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;  /* Logo stays left */
-  flex-wrap: wrap;
-  box-shadow: 0 3px 15px rgba(0,0,0,0.5);
+  justify-content: center; /* Center everything first */
+  padding: 20px 40px;
+  background-color: #111122;
+  position: sticky;
+  top: 0;
   z-index: 100;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.5);
+  flex-wrap: wrap;
+  gap: 30px;
+  position: relative; /* For absolute elements inside */
 }
 
-/* Logo */
+/* Logo on the left */
 .topnav .logo {
+  position: absolute; /* Take out of normal flow */
+  left: 40px;
   font-size: 2rem;
   font-weight: bold;
   color: #5ebfff;
   text-decoration: none;
   white-space: nowrap;
-  flex-shrink: 0;
 }
 
-/* Search - perfectly centered */
+/* Search container - truly centered */
 .search-container {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);  /* True horizontal center */
-  width: 60%;                   /* Adjust as needed */
+  flex: 1 1 0;
   max-width: 900px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 /* Search input */
 .search-container input[type="search"] {
   width: 100%;
-  padding: 18px 70px 18px 30px;
+  max-width: 900px;
+  padding: 18px 70px 18px 30px; /* Right padding for search icon */
   font-size: 1.3rem;
   border-radius: 50px;
   border: 2px solid #ddd;
@@ -44,17 +50,19 @@
   transition: all 0.3s ease;
 }
 
+/* Placeholder style */
 .search-container input::placeholder {
   color: #888;
   font-size: 1.2rem;
 }
 
+/* Focus style */
 .search-container input:focus {
   border-color: #5ebfff;
   box-shadow: 0 0 20px rgba(94,191,255,0.6);
 }
 
-/* Search icon */
+/* Search icon inside input */
 .search-container::after {
   content: "🔍";
   position: absolute;
@@ -75,16 +83,16 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
+    gap: 15px;
   }
 
   .topnav .logo {
+    position: static; /* Stacks on top */
     margin-bottom: 10px;
   }
 
   .search-container {
-    position: static;    /* Stack naturally */
     width: 95%;
-    transform: none;
     max-width: none;
   }
 }
