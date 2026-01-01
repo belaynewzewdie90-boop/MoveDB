@@ -1,58 +1,68 @@
-/* Header - Logo left, search wide and truly centered */
+/* =====================
+   Header - Logo left, search centered
+   ===================== */
 .topnav {
-  background-color: #111122;
-  padding: 20px 40px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;  /* Changed from space-between */
-  flex-wrap: wrap;
-  gap: 30px;                    /* More space */
+  justify-content: center; /* Center everything first */
+  padding: 20px 40px;
+  background-color: #111122;
   position: sticky;
   top: 0;
   z-index: 100;
   box-shadow: 0 3px 15px rgba(0,0,0,0.5);
+  flex-wrap: wrap;
+  gap: 30px;
+  position: relative; /* For absolute elements inside */
 }
 
-.topnav a {
-  color: #5ebfff;
-  text-decoration: none;
+/* Logo on the left */
+.topnav .logo {
+  position: absolute; /* Take out of normal flow */
+  left: 40px;
   font-size: 2rem;
   font-weight: bold;
+  color: #5ebfff;
+  text-decoration: none;
   white-space: nowrap;
-  flex-shrink: 0;               /* Prevents logo from shrinking */
 }
 
-/* Search container - centered in the middle */
+/* Search container - truly centered */
 .search-container {
-  flex: 1;                      /* Takes all available space */
-  max-width: 900px;             /* Wide but controlled */
-  margin: 0 auto;               /* This centers it perfectly */
+  flex: 1 1 0;
+  max-width: 900px;
+  width: 100%;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
+/* Search input */
 .search-container input[type="search"] {
   width: 100%;
-  padding: 18px 70px 18px 30px; /* Taller and comfortable */
+  max-width: 900px;
+  padding: 18px 70px 18px 30px; /* Right padding for search icon */
   font-size: 1.3rem;
-  background-color: white;
-  color: #333;
-  border: 2px solid #ddd;
   border-radius: 50px;
+  border: 2px solid #ddd;
   outline: none;
-  transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
 }
 
+/* Placeholder style */
 .search-container input::placeholder {
   color: #888;
   font-size: 1.2rem;
 }
 
+/* Focus style */
 .search-container input:focus {
   border-color: #5ebfff;
-  box-shadow: 0 0 20px rgba(94, 191, 255, 0.6);
+  box-shadow: 0 0 20px rgba(94,191,255,0.6);
 }
 
+/* Search icon inside input */
 .search-container::after {
   content: "🔍";
   position: absolute;
@@ -64,18 +74,25 @@
   pointer-events: none;
 }
 
-/* Mobile - Logo top, search full-width centered */
+/* =====================
+   Mobile responsive
+   ===================== */
 @media (max-width: 768px) {
   .topnav {
     flex-direction: column;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
     gap: 15px;
+  }
+
+  .topnav .logo {
+    position: static; /* Stacks on top */
+    margin-bottom: 10px;
   }
 
   .search-container {
     width: 95%;
     max-width: none;
-    margin: 0 auto;
   }
 }
